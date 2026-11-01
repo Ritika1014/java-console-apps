@@ -1,0 +1,50 @@
+import java.util.Scanner;
+public class Salary_slip {
+    public static void main(String[] args) {
+        Scanner obj = new Scanner(System.in);
+        System.out.print("Employee ID: ");
+        String empId = obj.nextLine();
+        System.out.print("Name: ");
+        String name = obj.nextLine();
+        System.out.print("Basic Salary: ");
+        double basic = obj.nextDouble();
+        System.out.print("HRA: ");
+        double hra = obj.nextDouble();
+        System.out.print("Conveyance: ");
+        double conveyance = obj.nextDouble();
+        System.out.print("Medical: ");
+        double medical = obj.nextDouble();
+        System.out.print("Overtime Hours: ");
+        double otHours = obj.nextDouble();
+        System.out.print("Overtime Rate: ");
+        double otRate = obj.nextDouble();
+        System.out.print("PF: ");
+        double pf = obj.nextDouble();
+        System.out.print("Tax: ");
+        double tax = obj.nextDouble();
+        double gross = basic + hra + conveyance + medical + (otHours * otRate);
+        double totalDeductions = pf + tax;
+        double net = gross - totalDeductions;
+        System.out.println("\n=====================================");
+        System.out.println("          SALARY SLIP");
+        System.out.println("=====================================");
+        System.out.printf("Employee ID: %s%n", empId);
+        System.out.printf("Name: %s%n", name);
+        System.out.println("-------------------------------------");
+        System.out.printf("Basic Salary: Rs. %.2f%n", basic);
+        System.out.printf("HRA: Rs. %.2f%n", hra);
+        System.out.printf("Conveyance: Rs. %.2f%n", conveyance);
+        System.out.printf("Medical: Rs. %.2f%n", medical);
+        System.out.printf("Overtime (%.1f hrs @ Rs. %.2f/hr): Rs. %.2f%n", otHours, otRate, otHours * otRate);
+        System.out.println("-------------------------------------");
+        System.out.printf("Gross Salary: Rs. %.2f%n", gross);
+        System.out.println("-------------------------------------");
+        System.out.printf("PF: Rs. %.2f%n", pf);
+        System.out.printf("Tax: Rs. %.2f%n", tax);
+        System.out.printf("Total Deductions: Rs. %.2f%n", totalDeductions);
+        System.out.println("-------------------------------------");
+        System.out.printf("Net Salary: Rs. %.2f%n", net);
+        System.out.println("=====================================");
+        obj.close();
+    }
+}
